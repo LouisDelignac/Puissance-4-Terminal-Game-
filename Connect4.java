@@ -53,19 +53,21 @@ public class Connect4 {
     }
 
     static Table initGame() {
+    // creates a new instance of the class Table and prints and return it
         Table game = new Table();
         game.printTable();
         return game;
     }
 
     static boolean verifyConnectFour(Case[][] table, int lastTokenColumn) {
+    // checks if the last token played creates is a Connect 4
 
-        // get the line of the last token
+        // gets the line of the last token
         int lastTokenLine = 0;
-        while(table[lastTokenLine+1][lastTokenColumn] != Case.EMPTY) {
+        while(lastTokenLine < 5 && table[lastTokenLine+1][lastTokenColumn] != Case.EMPTY) {
             lastTokenLine++;
         }
-
+ 
         Case winner = table[lastTokenLine][lastTokenColumn];
 
         // vertical test

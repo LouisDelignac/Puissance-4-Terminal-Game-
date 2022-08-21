@@ -7,6 +7,7 @@ public class Table {
     Case[][] table = new Case[6][7];
 
     public Table(){
+    // creates an empty Table
         for(int i = 0; i < 6; i++){
             for(int j = 0; j < 7; j++)
             this.table[i][j] = Case.EMPTY;
@@ -14,6 +15,7 @@ public class Table {
     }
 
     void printTable() {
+    // print the Table as a Connect 4 grid
         System.out.println(" _______________");
         for(int i = 5; i >= 0; i--) {
             System.out.print("| ");
@@ -29,8 +31,8 @@ public class Table {
         System.out.println("|---------------|");
     }
 
-    boolean addToken(Case color, int column) {
-        
+    boolean addToken(Case player, int column) {
+    // adds a player's token to the column
         if(column < 1 || column > 7) {
             System.out.println("Error in the column number.\nThe column number must be between 1 and 7.");
             return false;
@@ -44,7 +46,7 @@ public class Table {
                 return false;
             }
         }
-        this.table[i][column-1] = color;
+        this.table[i][column-1] = player;
         return true;
     }
 
